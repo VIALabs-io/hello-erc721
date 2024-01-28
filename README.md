@@ -1,38 +1,41 @@
 # HelloERC721
 
 HelloERC721 is an ERC721 token implementation showcasing cross-chain NFT functionality without the need for traditional bridges. Utilizing advanced smart contract techniques, it exemplifies a novel approach to NFT minting, transferring, and bridging across different blockchain networks.
+
 ## Features
 
-- **ERC721 NFT Implementation**: A standard ERC721 NFT
-- **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
-- **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
-- **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
+-   **ERC721 NFT Implementation**: A standard ERC721 NFT
+-   **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
+-   **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
+-   **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
 
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-- Node.js and npm (Node Package Manager)
-- A text editor such as VSCode for editing `.sol` and `.ts` files
-- GIT installed
+
+-   Node.js and npm (Node Package Manager)
+-   A text editor such as VSCode for editing `.sol` and `.ts` files
+-   GIT installed
 
 Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
-  
+
 ## Installation
 
 Please open a terminal to run the following commands. You can use any terminal of your choice, including the built in terminal in vscode (Terminal -> New Terminal)
 
-1. **Clone the Repository**: 
-   ```
-   git clone https://github.com/CryptoLinkTech/hello-erc721.git
-   ```
+1. **Clone the Repository**:
 
-   After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc721 in your IDE of choice.
+    ```
+    git clone https://github.com/CryptoLinkTech/hello-erc721.git
+    ```
 
+    After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc721 in your IDE of choice.
 
 2. **Install Dependencies**:
-   ```
-   npm install
-   ```
+
+    ```
+    npm install
+    ```
 
 3. **Set Up Environment Variables**:
    Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
@@ -91,6 +94,5 @@ npx hardhat --network [network-name] get-nft ---nftid [nft-id]
 To send NFTs to another chain:
 
 ```
-npx hardhat --network [network-name] bridge-nft --dest [destination-chain-id] --tokenid [token-id]
+npx hardhat --network [network-name] bridge-nft --dest [destination-chain-id] --nftid [nft-id]
 ```
-
