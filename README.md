@@ -26,10 +26,6 @@ Please open a terminal to run the following commands. You can use any terminal o
    git clone https://github.com/CryptoLinkTech/hello-erc721.git
    ```
 
-   ```
-   cd hello-erc721
-   ```
-
    After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc20 in your IDE of choice.
 
 
