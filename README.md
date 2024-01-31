@@ -16,6 +16,7 @@ Before you begin, ensure you have the following installed:
 -   Node.js and npm (Node Package Manager)
 -   A text editor such as VSCode for editing `.sol` and `.ts` files
 -   GIT installed
+- Testnet Tokens ([fantom testnet faucet](https://faucet.fantom.network/) and [polygon testnet faucet](https://faucet.polygon.technology/))
 
 Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
 
@@ -45,7 +46,7 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 ## Deployment
 
-Deploy the HelloERC721 contract to your desired networks. This must be done for each network you wish to operate on.
+Deploy the HelloERC721 contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
 
 ```
 npx hardhat --network [network-name] deploy
@@ -58,8 +59,7 @@ Edit the `networks-testnet.json` file and include all of the networks the contra
 ```
 [
     "fantom-testnet",
-    "polygon-testnet",
-    "sonic-testnet"
+    "polygon-testnet"
 ]
 ```
 
@@ -79,7 +79,7 @@ To mint an NFT on a chain:
 npx hardhat --network [network-name] mint-nft
 ```
 
-You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800010000 and the next 800010001 etc..
+You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800010000 and the next 800010001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
 
 ### Viewing NFT Details
 
