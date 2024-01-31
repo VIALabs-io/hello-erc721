@@ -41,7 +41,7 @@ contract HelloERC721 is ERC721, MessageClient {
 
         return string(abi.encodePacked('data:application/json;base64,', 
             Base64.encode(bytes(abi.encodePacked(
-                '{"name":"Hello ERC721 #', tokenId, '", "description":"Hello ERC721 cross chain NFT example.", "image":"https://i.postimg.cc/FKkpPByb/cl-logo.png"}')
+                '{"name":"CryptoLink.Tech Hello ERC721 #', tokenId, '", "description":"Hello ERC721 cross chain NFT example. https://github.com/CryptoLinkTech/hello-erc721", "image":"https://i.postimg.cc/FKkpPByb/cl-logo.png"}')
             )))
         );
     }
