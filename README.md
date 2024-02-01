@@ -48,8 +48,16 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 Deploy the HelloERC721 contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
 
+1. **Fantom Testnet Deployment:**
+
 ```
-npx hardhat --network [network-name] deploy
+npx hardhat --network fantom-testnet deploy
+```
+
+2. **Polygon Testnet Deployment:**
+
+```
+npx hardhat --network polygon-testnet deploy
 ```
 
 ## Configuration
@@ -65,8 +73,16 @@ Edit the `networks-testnet.json` file and include all of the networks the contra
 
 Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
 
+1. **Fantom Testnet Configuration:**
+
 ```
-npx hardhat --network [network-name] configure
+npx hardhat --network fantom-testnet configure
+```
+
+2. **Polygon Testnet Configuration:**
+
+```
+npx hardhat --network polygon-testnet configure
 ```
 
 ## Usage
@@ -76,7 +92,7 @@ npx hardhat --network [network-name] configure
 To mint an NFT on a chain:
 
 ```
-npx hardhat --network [network-name] mint-nft
+npx hardhat --network polygon-testnet mint-nft
 ```
 
 You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800010000 and the next 800010001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
@@ -86,13 +102,13 @@ You will get the next available NFT. NFTs start at [chain-id]0000 so the first N
 To view the details of an NFT including its Metadata and Owner:
 
 ```
-npx hardhat --network [network-name] get-nft ---nftid [nft-id]
+npx hardhat --network polygon-network get-nft ---nftid 800010000
 ```
 
 ### Bridging NFTs to Another Chain
 
-To send NFTs to another chain:
+To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Fantom Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
 
 ```
-npx hardhat --network [network-name] bridge-nft --dest [destination-chain-id] --nftid [nft-id]
+npx hardhat --network polygon-testnet bridge-nft --dest 4002 --nftid 800010000
 ```
