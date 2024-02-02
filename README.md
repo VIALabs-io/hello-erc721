@@ -102,7 +102,7 @@ You will get the next available NFT. NFTs start at [chain-id]0000 so the first N
 To view the details of an NFT including its Metadata and Owner:
 
 ```
-npx hardhat --network polygon-network get-nft ---nftid 800010000
+npx hardhat --network polygon-testnet get-nft ---nftid 800010000
 ```
 
 ### Bridging NFTs to Another Chain
