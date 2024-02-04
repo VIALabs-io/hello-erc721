@@ -36,7 +36,7 @@ code hello-erc721
 ```
 
 3. **Install Dependencies**:
-
+In vscode (Terminal -> New Terminal)
 ```
 npm install
 ```
