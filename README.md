@@ -26,23 +26,26 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 1. **Clone the Repository**:
 
-    ```
-    git clone https://github.com/CryptoLinkTech/hello-erc721.git
-    ```
+```bash
+git clone https://github.com/CryptoLinkTech/hello-erc721.git
+```
 
-    After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc721 in your IDE of choice.
+2. After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc721 in your IDE of choice.
+```bash
+code hello-erc721
+```
 
-2. **Install Dependencies**:
+3. **Install Dependencies**:
 
-    ```
-    npm install
-    ```
+```
+npm install
+```
 
-3. **Set Up Environment Variables**:
+4. **Set Up Environment Variables**:
    Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
-    ```
-    PRIVATE_KEY=0000000000000000000000000000
-    ```
+```
+PRIVATE_KEY=0000000000000000000000000000
+```
 
 ## Deployment
 
