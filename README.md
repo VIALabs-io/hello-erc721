@@ -1,10 +1,10 @@
 # HelloERC721
 
-HelloERC721 is an ERC721 token implementation showcasing cross-chain NFT functionality without the need for traditional bridges. Utilizing advanced smart contract techniques, it exemplifies a novel approach to NFT minting, transferring, and bridging across different blockchain networks.
+`HelloERC721` is an `ERC721` token implementation showcasing cross-chain NFT functionality without the need for traditional bridges, making the NFT cross-chain native. Utilizing the CryptoLink.Tech NPM package it is trivial to add native cross-chain functionality to any NFT contract. Below is a bare-bones `ERC721` contract to showcase the ease of use. 
 
 ## Features
 
--   **ERC721 NFT Implementation**: A standard ERC721 NFT
+-   **ERC721 NFT Implementation**: A standard `ERC721` NFT
 -   **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
 -   **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
 -   **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
@@ -46,17 +46,17 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 ## Deployment
 
-Deploy the HelloERC721 contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
+Deploy the `HelloERC721` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
 
 1. **Fantom Testnet Deployment:**
 
-```
+```bash
 npx hardhat --network fantom-testnet deploy
 ```
 
 2. **Polygon Testnet Deployment:**
 
-```
+```bash
 npx hardhat --network polygon-testnet deploy
 ```
 
@@ -64,7 +64,7 @@ npx hardhat --network polygon-testnet deploy
 
 Edit the `networks-testnet.json` file and include all of the networks the contract is deployed on.
 
-```
+```javascript
 [
     "fantom-testnet",
     "polygon-testnet"
@@ -75,13 +75,13 @@ Once all contracts are deployed across the desired networks and listed in `netwo
 
 1. **Fantom Testnet Configuration:**
 
-```
+```bash
 npx hardhat --network fantom-testnet configure
 ```
 
 2. **Polygon Testnet Configuration:**
 
-```
+```bash
 npx hardhat --network polygon-testnet configure
 ```
 
@@ -91,7 +91,7 @@ npx hardhat --network polygon-testnet configure
 
 To mint an NFT on a chain:
 
-```
+```bash
 npx hardhat --network polygon-testnet mint-nft
 ```
 
@@ -101,7 +101,7 @@ You will get the next available NFT. NFTs start at [chain-id]0000 so the first N
 
 To view the details of an NFT including its Metadata and Owner:
 
-```
+```bash
 npx hardhat --network polygon-testnet get-nft ---nftid 800010000
 ```
 
@@ -109,6 +109,57 @@ npx hardhat --network polygon-testnet get-nft ---nftid 800010000
 
 To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Fantom Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
 
-```
+```bash
 npx hardhat --network polygon-testnet bridge-nft --dest 4002 --nftid 800010000
 ```
+
+## Contract Breakdown of HelloERC721
+
+The `HelloERC721` contract is an example of an ERC721 token designed for cross-chain operations, leveraging the CryptoLink.Tech framework for seamless blockchain interactions.
+
+### Key Features
+
+- **ERC721 Token**: Inherits from OpenZeppelin's ERC721 standard.
+- **Cross-Chain Functionality**: Enabled via the MessageClient from the `@cryptolink/contracts` package.
+- **Unique NFT ID Generation**: Utilizes the blockchain's chain ID to generate unique NFT IDs.
+
+### Constructor
+```solidity
+constructor() ERC721("Hello ERC721!", "H721") {
+    nextNftId = block.chainid * 10**4;
+}
+```
+Initializes the NFT with a unique name and symbol, and sets up the initial NFT ID based on the blockchain's chain ID.
+
+### Mint Function
+```solidity
+function mint() external {
+    _mint(msg.sender, nextNftId);
+    nextNftId++;
+}
+```
+Allows users to mint a new NFT. The NFT ID is automatically incremented after each minting.
+
+### Bridge Function
+```solidity
+function bridge(uint _destChainId, address _recipient, uint _nftId) external {
+    // Implementation details...
+}
+```
+Enables NFTs to be bridged to a different chain. The NFT is burned on the current chain and a message is sent for minting on the destination chain.
+
+### Message Processing
+```solidity
+function messageProcess(uint, uint _sourceChainId, address _sender, address, uint, bytes calldata _data) external override {
+    // Implementation details...
+}
+```
+Handles incoming messages for cross-chain NFT minting.
+
+### Token URI
+```solidity
+function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
+    // Implementation details...
+}
+```
+Generates a token URI for each NFT, providing its metadata in a base64-encoded JSON format.
