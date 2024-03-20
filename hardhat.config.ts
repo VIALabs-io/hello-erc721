@@ -11,9 +11,7 @@ import "./tasks/configure";
 const dotenv = require("dotenv");
 dotenv.config({ path: __dirname + "/.env" });
 
-const accounts = [
-	process.env.PRIVATE_KEY
-];
+const accounts = [process.env.PRIVATE_KEY];
 
 const config: any = {
 	gasReporter: {
@@ -27,19 +25,19 @@ const config: any = {
 			url: "https://ethereum-goerli.publicnode.com",
 			live: false,
 			accounts: accounts,
-		},		
+		},
 		"ethereum-holesky": {
 			chainId: 17000,
 			url: "https://ethereum-holesky.publicnode.com",
 			live: false,
 			accounts: accounts,
-		},		
+		},
 		"ethereum-sepolia": {
 			chainId: 11155111,
 			url: "https://eth-sepolia.public.blastapi.io",
 			live: false,
 			accounts: accounts,
-		},		
+		},
 		"fantom-testnet": {
 			chainId: 4002,
 			url: "https://rpc.testnet.fantom.network",
@@ -48,7 +46,7 @@ const config: any = {
 		},
 		"polygon-testnet": {
 			chainId: 80001,
-			url: "https://rpc-mumbai.maticvigil.com/",
+			url: "https://polygon-testnet.public.blastapi.io",
 			live: false,
 			accounts: accounts,
 		},
