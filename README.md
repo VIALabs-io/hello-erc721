@@ -1,12 +1,12 @@
 # HelloERC721
 
-`HelloERC721` is an `ERC721` token implementation showcasing cross-chain NFT functionality without the need for traditional bridges, making the NFT cross-chain native. Utilizing the CryptoLink.Tech NPM package it is trivial to add native cross-chain functionality to any NFT contract. Below is a bare-bones `ERC721` contract to showcase the ease of use. 
+`HelloERC721` is an `ERC721` token implementation showcasing cross-chain NFT functionality without the need for traditional bridges, making the NFT cross-chain native. Utilizing the VIA Labs NPM package it is trivial to add native cross-chain functionality to any NFT contract. Below is a bare-bones `ERC721` contract to showcase the ease of use. 
 
 ## Features
 
 -   **ERC721 NFT Implementation**: A standard `ERC721` NFT
 -   **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
--   **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
+-   **VIA Labs Integration**: Leverages the VIA Labs NPM package for seamless cross-chain communication.
 -   **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ Please open a terminal to run the following commands. You can use any terminal o
 1. **Clone the Repository**:
 
 ```bash
-git clone https://github.com/CryptoLinkTech/hello-erc721.git
+git clone https://github.com/VIALabs-io/hello-erc721.git
 ```
 
 2. After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc721 in your IDE of choice.
@@ -49,7 +49,7 @@ PRIVATE_KEY=0000000000000000000000000000
 
 ## Deployment
 
-Deploy the `HelloERC721` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
+Deploy the `HelloERC721` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
 1. **Fantom Testnet Deployment:**
 
@@ -60,7 +60,7 @@ npx hardhat --network fantom-testnet deploy
 2. **Polygon Testnet Deployment:**
 
 ```bash
-npx hardhat --network polygon-testnet deploy
+npx hardhat --network polygon-amoy deploy
 ```
 
 ## Configuration
@@ -70,7 +70,7 @@ Edit the `networks-testnet.json` file and include all of the networks the contra
 ```javascript
 [
     "fantom-testnet",
-    "polygon-testnet"
+    "polygon-amoy"
 ]
 ```
 
@@ -85,7 +85,7 @@ npx hardhat --network fantom-testnet configure
 2. **Polygon Testnet Configuration:**
 
 ```bash
-npx hardhat --network polygon-testnet configure
+npx hardhat --network polygon-amoy configure
 ```
 
 ## Usage
@@ -95,35 +95,35 @@ npx hardhat --network polygon-testnet configure
 To mint an NFT on a chain:
 
 ```bash
-npx hardhat --network polygon-testnet mint-nft
+npx hardhat --network polygon-amoy mint-nft
 ```
 
-You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800010000 and the next 800010001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
+You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800010000 and the next 800010001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
 
 ### Viewing NFT Details
 
 To view the details of an NFT including its Metadata and Owner:
 
 ```bash
-npx hardhat --network polygon-testnet get-nft ---nftid 800010000
+npx hardhat --network polygon-amoy get-nft ---nftid 800010000
 ```
 
 ### Bridging NFTs to Another Chain
 
-To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Fantom Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
+To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Fantom Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network polygon-testnet bridge-nft --dest 4002 --nftid 800010000
+npx hardhat --network polygon-amoy bridge-nft --dest 4002 --nftid 800010000
 ```
 
 ## Contract Breakdown of HelloERC721
 
-The `HelloERC721` contract is an example of an ERC721 token designed for cross-chain operations, leveraging the CryptoLink.Tech framework for seamless blockchain interactions.
+The `HelloERC721` contract is an example of an ERC721 token designed for cross-chain operations, leveraging the VIA Labs framework for seamless blockchain interactions.
 
 ### Key Features
 
 - **ERC721 Token**: Inherits from OpenZeppelin's ERC721 standard.
-- **Cross-Chain Functionality**: Enabled via the MessageClient from the `@cryptolink/contracts` package.
+- **Cross-Chain Functionality**: Enabled via the MessageClient from the `@vialabs-io/contracts` package.
 - **Unique NFT ID Generation**: Utilizes the blockchain's chain ID to generate unique NFT IDs.
 
 ### Constructor

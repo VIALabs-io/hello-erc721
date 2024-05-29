@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MIT
-// (c)2024 Atlas (atlas@cryptolink.tech)
+// (c)2024 Atlas (atlas@vialabs.io)
 pragma solidity =0.8.17;
 
-import "@cryptolink/contracts/message/MessageClient.sol";
+import "@vialabs-io/contracts/message/MessageClient.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "base64-sol/base64.sol";
 
@@ -41,7 +41,7 @@ contract HelloERC721 is ERC721, MessageClient {
 
         return string(abi.encodePacked('data:application/json;base64,', 
             Base64.encode(bytes(abi.encodePacked(
-                '{"name":"CryptoLink.Tech Hello ERC721 #', tokenId, '", "description":"Hello ERC721 cross chain NFT example. https://github.com/CryptoLinkTech/hello-erc721", "image":"https://i.postimg.cc/FKkpPByb/cl-logo.png"}')
+                '{"name":"VIA Labs Hello ERC721 #', tokenId, '", "description":"Hello ERC721 cross chain NFT example. https://github.com/VIALabs-io/hello-erc721", "image":"https://i.postimg.cc/FKkpPByb/cl-logo.png"}')
             )))
         );
     }
