@@ -98,14 +98,14 @@ To mint an NFT on a chain:
 npx hardhat --network polygon-amoy mint-nft
 ```
 
-You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800010000 and the next 800010001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
+You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800020000 and the next 800020001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
 
 ### Viewing NFT Details
 
 To view the details of an NFT including its Metadata and Owner:
 
 ```bash
-npx hardhat --network polygon-amoy get-nft ---nftid 800010000
+npx hardhat --network polygon-amoy get-nft ---nftid 800020000
 ```
 
 ### Bridging NFTs to Another Chain
@@ -113,7 +113,7 @@ npx hardhat --network polygon-amoy get-nft ---nftid 800010000
 To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Fantom Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network polygon-amoy bridge-nft --dest 4002 --nftid 800010000
+npx hardhat --network polygon-amoy bridge-nft --dest 4002 --nftid 800020000
 ```
 
 ## Contract Breakdown of HelloERC721
