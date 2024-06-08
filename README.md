@@ -16,7 +16,7 @@ Before you begin, ensure you have the following installed:
 -   Node.js and npm (Node Package Manager)
 -   A text editor such as VSCode for editing `.sol` and `.ts` files
 -   GIT installed
-- Testnet Tokens ([fantom testnet faucet](https://faucet.fantom.network/) and [polygon testnet faucet](https://faucet.polygon.technology/))
+- Testnet Tokens ([ethereum sepolia faucet](https://chainstack.com/sepolia-faucet/) and [polygon testnet faucet](https://faucet.polygon.technology/))
 
 Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
 
@@ -51,10 +51,10 @@ PRIVATE_KEY=0000000000000000000000000000
 
 Deploy the `HelloERC721` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
-1. **Fantom Testnet Deployment:**
+1. **Ethereum Sepolia Deployment:**
 
 ```bash
-npx hardhat --network fantom-testnet deploy
+npx hardhat --network ethereum-sepolia deploy
 ```
 
 2. **Polygon Testnet Deployment:**
@@ -65,21 +65,21 @@ npx hardhat --network polygon-amoy deploy
 
 ## Configuration
 
-Edit the `networks-testnet.json` file and include all of the networks the contract is deployed on.
+Edit the `networks.ts` file and include all of the networks the contract is deployed on.
 
 ```javascript
 [
-    "fantom-testnet",
+    "ethereum-sepolia",
     "polygon-amoy"
 ]
 ```
 
-Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
+Once all contracts are deployed across the desired networks and listed in `networks.ts`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
 
-1. **Fantom Testnet Configuration:**
+1. **Ethereum Sepolia Configuration:**
 
 ```bash
-npx hardhat --network fantom-testnet configure
+npx hardhat --network ethereum-sepolia configure
 ```
 
 2. **Polygon Testnet Configuration:**
@@ -98,7 +98,7 @@ To mint an NFT on a chain:
 npx hardhat --network polygon-amoy mint-nft
 ```
 
-You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Testnet will be 800020000 and the next 800020001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
+You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Amoy Testnet will be 800020000 and the next 800020001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
 
 ### Viewing NFT Details
 
@@ -110,10 +110,10 @@ npx hardhat --network polygon-amoy get-nft ---nftid 800020000
 
 ### Bridging NFTs to Another Chain
 
-To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Fantom Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
+To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Ethereum Sepolia testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network polygon-amoy bridge-nft --dest 4002 --nftid 800020000
+npx hardhat --network polygon-amoy bridge-nft --dest 11155111 --nftid 800020000
 ```
 
 ## Contract Breakdown of HelloERC721
