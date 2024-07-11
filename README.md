@@ -1,12 +1,12 @@
 # HelloERC721
 
-`HelloERC721` is an `ERC721` token implementation showcasing cross-chain NFT functionality without the need for traditional bridges, making the NFT cross-chain native. Utilizing the VIA Labs NPM package it is trivial to add native cross-chain functionality to any NFT contract. Below is a bare-bones `ERC721` contract to showcase the ease of use. 
+`HelloERC721` is an `ERC721` token implementation showcasing cross-chain NFT functionality without the need for traditional bridges, making the NFT cross-chain native. Utilizing the VIA Labs package it is trivial to add native cross-chain functionality to any NFT contract. Below is a bare-bones `ERC721` contract to showcase the ease of use. 
 
 ## Features
 
 -   **ERC721 NFT Implementation**: A standard `ERC721` NFT
 -   **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
--   **VIA Labs Integration**: Leverages the VIA Labs NPM package for seamless cross-chain communication.
+-   **VIA Labs Integration**: Leverages the VIA Labs package for seamless cross-chain communication.
 -   **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
 
 ## Prerequisites
@@ -49,7 +49,7 @@ PRIVATE_KEY=0000000000000000000000000000
 
 ## Deployment
 
-Deploy the `HelloERC721` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
+Deploy the `HelloERC721` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
 1. **Ethereum Sepolia Deployment:**
 
@@ -98,7 +98,7 @@ To mint an NFT on a chain:
 npx hardhat --network polygon-amoy mint-nft
 ```
 
-You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Amoy Testnet will be 800020000 and the next 800020001 etc.. You can look up the chain ids in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
+You will get the next available NFT. NFTs start at [chain-id]0000 so the first NFT minted on Polygon Amoy Testnet will be 800020000 and the next 800020001 etc.. You can look up the chain ids in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets). You can also look up the transaction on the testnet explorer to see the NFT details using your wallet address.
 
 ### Viewing NFT Details
 
@@ -110,7 +110,7 @@ npx hardhat --network polygon-amoy get-nft ---nftid 800020000
 
 ### Bridging NFTs to Another Chain
 
-To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Ethereum Sepolia testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
+To send NFTs to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Ethereum Sepolia testnet. Chain IDs can be looked up in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
 npx hardhat --network polygon-amoy bridge-nft --dest 11155111 --nftid 800020000
